@@ -1,0 +1,21 @@
+/* Path: src/pages/GuideDashboard.css */
+
+/* Section title styling for dashboard headers */
+.section-title {
+  font-family: 'Open Sans', sans-serif; /* Clean, modern font */
+  font-weight: bold; /* Bold text */
+  font-size: 30px; /* Large size for visibility */
+  color: #584335; /* Deep brown text color */
+  border-bottom: 4px solid #6a669d; /* Purple underline */
+  margin-bottom: 1.5rem; /* Space below the title */
+  padding-bottom: 0.2rem; /* Space inside the underline */
+  width: 100%; /* Ensure it spans full width */
+}
+
+/* Only apply stacking on small screens */
+@media (max-width: 768px) {
+  #dashboardRow1 > div {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+}

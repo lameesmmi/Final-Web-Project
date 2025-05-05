@@ -1,0 +1,81 @@
+
+.experience-page {
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  /* Top banner section */
+  .hero-section {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+
+  .hero-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+  
+  /* Form layout */
+  .form-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      margin-top: 40px;
+      padding: 0 60px; 
+      flex-wrap: wrap;
+    }
+    
+    .dropdown-container {
+      transform: translateX(-100px); 
+    }
+    
+  .dropdown-container,
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+   
+  }
+  
+  .calendar-label {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-left:-100px ;
+  }
+  
+  .explore-btn {
+    background-color: #9abf80;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .explore-btn:hover {
+    background-color: #9abf80;
+  }
+  
+  
+  

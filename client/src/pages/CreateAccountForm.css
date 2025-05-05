@@ -1,0 +1,100 @@
+/* Path: src/pages/CreateAccountForm.css */
+
+/* Import Open Sans and Ubuntu fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu&display=swap');
+
+/* Main container for the Create Account forms */
+.account-form {
+  background-color: #e5e3d4; /* Soft cream background */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Ubuntu', sans-serif; /* Main font */
+}
+
+/* Logo styling at the top left of the page */
+.page-logo {
+  position: absolute; /* Fix position relative to the page */
+  top: 20px; /* Distance from top */
+  left: 30px; /* Distance from left */
+  height: 100px; /* Initial size */
+  z-index: 1000; /* Appear above other content */
+  height: 200px; /* Override to make it bigger */
+  width: auto; /* Keep aspect ratio */
+  margin-top: -4rem; /* Pull up slightly */
+}
+
+/* Big Title Styling */
+.account-form-title {
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700; /* Bold */
+  color: #6a669d; /* Purple */
+  margin-bottom: 0.5rem;
+}
+
+/* Subtitle under the Title */
+.account-form-subtitle {
+  font-size: 20px;
+  color: #584335; /* Brown */
+  margin-bottom: 2rem;
+}
+
+/* Style for the actual form */
+.account-form form {
+  background: #ffffff; /* White background inside form */
+  padding: 2rem;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 600px; /* Limit width on large screens */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+  gap: 1.5rem; /* Space between fields */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+}
+
+/* Each input + label group */
+.account-form .input-pair {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling inside the form */
+.account-form .input-pair label {
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+  color: #584335; /* Brown */
+}
+
+/* Input fields styling */
+.account-form .input-pair input {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 2px solid #6a669d; /* Purple border */
+  font-size: 16px;
+  background-color: #fff;
+}
+
+/* Placeholder text inside input fields */
+.account-form .input-pair input::placeholder {
+  color: #9abf80; /* Green placeholder */
+}
+
+/* Submit/Create button styling */
+.account-form .create-btn {
+  grid-column: span 2; /* Make the button span both columns */
+  background-color: #9abf80; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+.account-form .create-btn:hover {
+  background-color: #6a669d; /* Change to purple on hover */
+}

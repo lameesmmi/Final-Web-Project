@@ -1,0 +1,124 @@
+/* Path: src/pages/CreateAccount.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu&display=swap');
+
+/* Container for the entire Create Account page */
+.create-account-container {
+  height: 100vh;
+  background-color: #e5e3d4; /* Soft cream background */
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0; /* Remove any default margins */
+  width: 100%; /* Full width */
+}
+
+/* Style for the logo positioned at the top left */
+.page-logo {
+  position: absolute; /* Fix position relative to page */
+  top: 20px;           /* Distance from top */
+  left: 30px;          /* Distance from left */
+  height: 200px;       /* Height of logo */
+  width: auto;         /* Maintain aspect ratio */
+  z-index: 1000;       /* Keep above all other content */
+  margin-top: -4rem;   /* Slight adjustment */
+}
+
+/* Main Title for Create Account */
+.create-account-title {
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #6a669d; /* Purple color */
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Container for the 3 buttons (Tourist, Guide, Provider) */
+.create-account-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Individual button styling */
+.create-account-button {
+  width: 180px;
+  padding: 1rem;
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #e5e3d4;
+  color: #6a669d;
+  border: 2px solid #6a669d;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Hover effect for each button */
+.create-account-button:hover {
+  background-color: #9abf80; /* Change to green */
+  color: white; /* Text turns white */
+}
+
+/* Image (icon) inside each button */
+.create-account-icon {
+  width: 160px; /* Size of icon */
+  height: 160px;
+  object-fit: cover; /* Maintain image aspect */
+  margin-bottom: 10px;
+  border-radius: 15px; /* Rounded corners for icons */
+}
+
+/* Text under icons for Tourist and Guide */
+.button-text-typeI {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #6a669d;
+  position: absolute;
+  bottom: -40px; /* Positioned slightly below button */
+  text-align: center;
+  width: 100%;
+}
+
+/* Text under icon for Activity Provider (longer text adjustment) */
+.button-text-typeII {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #6a669d;
+  position: absolute;
+  bottom: -65px; /* More spacing for two-line text */
+  text-align: center;
+  width: 100%;
+}
+
+/* Styling for 'Already have an account?' text */
+.create-account-link {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #6a669d;
+  text-align: center;
+  margin-top: 5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Remove underline for links inside */
+.create-account-link a {
+  text-decoration: none;
+}
+
+/* Underline link text when hovering */
+.create-account-link a:hover {
+  text-decoration: underline;
+}

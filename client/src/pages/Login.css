@@ -1,0 +1,156 @@
+/* Path: src/pages/Login.css */
+
+/* Import Google Fonts (Open Sans and Ubuntu) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu&display=swap');
+
+/* Main container for the login page */
+.login-container {
+  height: 100vh;
+  background-color: #e5e3d4; /* Soft cream background */
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+/* Logo styling: positioned at the top-left */
+.page-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  height: 100px; /* Initial size */
+  z-index: 1000; /* Bring to front */
+  height: 200px; /* Final height (overridden) */
+  width: auto; /* Keep aspect ratio */
+  margin-top: -4rem; /* Adjust upwards */
+}
+
+/* Page title styling */
+.login-title {
+  font-size: 45px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #6a669d; /* Purple */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form container styling */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff; /* White background */
+}
+
+/* Input fields (Username/Email, Password) */
+.login-input {
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #6a669d; /* Light purple border */
+  border-radius: 25px;
+  background-color: transparent; /* Transparent input background */
+  color: #584335;
+}
+
+/* Placeholder text inside input fields */
+.login-input::placeholder {
+  color: #9abf80; /* Green placeholder */
+}
+
+/* "Forgot Password" section styling */
+.forgot-password {
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+/* Link inside "Forgot Password" */
+.forgot-password a {
+  font-size: 18px;
+  text-decoration: none; /* No underline */
+}
+
+/* Underline link on hover */
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Main login button styling */
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #9abf80; /* Green */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+/* Special smaller form button (alternative use) */
+.form-button {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 300px;
+  padding: 0.5rem;
+  font-size: 18px;
+  background-color: #9abf80; /* Olive green */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background-color: #6a669d; /* Dark purple on hover */
+}
+
+/* "Create Account" section styling */
+.create-account {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #6a669d; /* Purple */
+  text-align: center;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Link inside "Create Account" */
+.create-account a {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Underline "Create Account" link on hover */
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* Error message styling (when login fails) */
+.error-message {
+  color: red;
+  font-size: 14px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+}

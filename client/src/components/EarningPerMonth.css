@@ -1,0 +1,54 @@
+/* Path: src/components/EarningPerMonth.css */
+
+/* Container for the entire Earning / Month component */
+.earning-container {
+  background-color: #e5e3d4;
+  padding: 2rem;
+  border-radius: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  max-width: 1000px; /* Control maximum width */
+  margin: 0 auto;     /* Center the container */
+}
+
+/* Section title styling (Earning / Month title) */
+/* .section-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  color: #584335;
+  border-bottom: 4px solid #6a669d;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.2rem;
+  width: 100%;
+} */
+
+/* Centering the year dropdown */
+.year-dropdown-centered {
+  display: flex;
+  justify-content: flex-start; /* Align dropdown to the left */
+  margin-bottom: 1.5rem;
+  margin-top: -3.1rem;
+}
+
+/* Styling for the year select dropdown */
+.year-select-bw {
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 1rem 0;
+}
+
+/* Wrapper for the chart area */
+.chart-wrapper {
+  background-color: #d9d9d9;
+  padding: 1rem;
+  border-radius: 20px;
+  width: 100%;
+  height: 350px; /* Fixed height for consistent chart size */
+  margin-top: -1rem;
+}
+   

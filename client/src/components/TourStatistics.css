@@ -1,0 +1,87 @@
+/* Path: src/components/TourStatistics.css */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Ubuntu&display=swap');
+
+/* Main container for Tour Statistics */
+.tour-statistics {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #e5e3d4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+/* Date range section (From - To) */
+.date-range {
+  display: flex;
+  gap: 2rem; /* Space between From and To */
+  margin-bottom: 2rem;
+  align-items: center; /* Align vertically */
+}
+
+/* Container for each date field */
+.date-field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between label and input */
+}
+
+/* Styling for "From" and "To" labels */
+.date-field label {
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #584335;
+}
+
+/* Legacy class for date grouping if needed */
+.date-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling inside date group (currently not used) */
+.tour-statistics label {
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+  color: #584335;
+  margin-top: -2rem;
+}
+
+/* Input styling for date pickers */
+.tour-statistics input[type="date"] {
+  font-size: 16px;
+  padding: 0.4rem;
+  border-radius: 8px;
+  background-color: #fff; /* Force white background */
+  margin-top: -2rem;
+}
+
+/* Statistics box container */
+.stats-box {
+  background-color: #d3d3d3;
+  border-radius: 25px;
+  padding: 1.5rem;
+  margin-top: -0.2rem;
+}
+
+/* Each statistic row */
+.stat-row {
+  display: flex;
+  justify-content: space-between; /* Label on left, number on right */
+  align-items: center;
+  font-size: 20px;
+  color: #584335;
+  margin-bottom: 1rem;
+}
+
+/* Styling for the numbers in the statistics */
+.stat-number {
+  background-color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  min-width: 60px;
+  text-align: center;
+}

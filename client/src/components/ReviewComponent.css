@@ -1,0 +1,36 @@
+#review-container {
+    border: 2px solid rgb(124, 121, 121);
+    padding: 8px;
+    margin: 8px;
+    border-radius: 8px;
+   /*remove it or change it according to the size you need*/
+    width: 300px
+}
+
+#stars {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+#review-title,
+#review-body,
+#reviewer-name {
+    width: 90%;
+    margin-bottom: 4px;
+    padding: 6px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    /*font-size: 10px;*/
+}
+
+#review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#review-date {
+    margin-left: 8px;
+    font-size: 14px;
+    color: gray;
+}
