@@ -1,10 +1,9 @@
 // Path: src/components/TourStatistics.jsx
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./TourStatistics.css";
 
-
+// Simulated guide ID usage (kept for structure consistency, though unused now)
 const guideId = localStorage.getItem('guideId');
 
 const TourStatistics = () => {
@@ -12,7 +11,7 @@ const TourStatistics = () => {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
 
-  // Statistics returned from the backend
+  // Statistics state
   const [stats, setStats] = useState({
     completed: 0,
     canceled: 0,
@@ -20,19 +19,31 @@ const TourStatistics = () => {
     attendees: 0
   });
 
-  // Fetch stats from the backend when the date range changes
+  // Simulate fetching data each time the date range changes
   useEffect(() => {
     if (fromDate && toDate) {
-      axios
-        .get(`/guides/tour-stats/${guideId}?from=${fromDate}&to=${toDate}`)
-        .then((res) => setStats(res.data))
-        .catch((err) => console.error("Error fetching statistics:", err));
+      // Optional delay to simulate an API call
+      const timeout = setTimeout(() => {
+        const scheduled = Math.floor(Math.random() * 10) + 5; // 5–14 scheduled
+        const completed = Math.floor(Math.random() * (scheduled + 1)); // 0–scheduled
+        const canceled = Math.floor(Math.random() * (scheduled - completed + 1)); // 0–remaining
+        const attendees = completed * (Math.floor(Math.random() * 4) + 2); // 2–5 attendees per tour
+
+        setStats({
+          completed,
+          canceled,
+          scheduled,
+          attendees
+        });
+      }, 500); // Simulated response delay
+
+      return () => clearTimeout(timeout); // Cleanup if range changes quickly
     }
   }, [fromDate, toDate]);
 
   return (
     <div className="tour-statistics">
-      {/* Date range input fields */}
+      {/* Date range inputs */}
       <div className="date-range">
         <div className="date-field">
           <label htmlFor="fromDate">From</label>
@@ -57,7 +68,7 @@ const TourStatistics = () => {
         </div>
       </div>
 
-      {/* Dynamic statistics display */}
+      {/* Statistics display */}
       <div className="stats-box">
         <div className="stat-row">
           <span>Total tours completed</span>
@@ -81,4 +92,3 @@ const TourStatistics = () => {
 };
 
 export default TourStatistics;
-
