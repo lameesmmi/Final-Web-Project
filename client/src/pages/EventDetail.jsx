@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import MenuBar from '../components/MenuBar';
 import ContactInfo from '../components/ContactInfo';
-import Popup from '../components/Popup';
-import axios from '../api/axiosInstance'; // ✅ Import Axios instance
+import axios from '../api/axiosInstance';
 
 const links = [
   { path: "/Events", label: "Home" },
@@ -33,7 +32,6 @@ const EventDetail = () => {
         setActivityData(null);
       }
     };
-
     fetchActivity();
   }, [id]);
 
@@ -74,7 +72,6 @@ const EventDetail = () => {
 
   const handleSaveConfirm = async () => {
     try {
-   
       await axios.put(`/activities/${id}`, activityData);
       setIsEditing(false);
       setShowSavePopup(false);
@@ -87,6 +84,19 @@ const EventDetail = () => {
 
   const handleCancelClick = () => setShowCancelPopup(true);
   const handleConfirmCancel = () => navigate('/Events');
+
+  const renderPopup = (title, message, onConfirm, onClose) => (
+    <div style={overlayStyle}>
+      <div style={popupStyle}>
+        <h2>{title}</h2>
+        <p>{message}</p>
+        <div style={{ marginTop: '20px', textAlign: 'right' }}>
+          <button onClick={onConfirm} style={confirmButtonStyle}>Confirm</button>
+          <button onClick={onClose} style={closeButtonStyle}>Close</button>
+        </div>
+      </div>
+    </div>
+  );
 
   if (!activityData) {
     return (
@@ -109,24 +119,18 @@ const EventDetail = () => {
         <p>Unforgettable experiences await!</p>
       </header>
 
-      {showCancelPopup && (
-        <Popup
-          title="Cancel Edit"
-          message="Are you sure you want to discard your changes?"
-          type="warning"
-          showConfirm
-          onConfirm={handleConfirmCancel}
-        />
+      {showCancelPopup && renderPopup(
+        "Cancel Edit",
+        "Are you sure you want to discard your changes?",
+        handleConfirmCancel,
+        () => setShowCancelPopup(false)
       )}
 
-      {showSavePopup && (
-        <Popup
-          title="Confirm Save"
-          message="Are you sure you want to save the changes?"
-          type="success"
-          showConfirm
-          onConfirm={handleSaveConfirm}
-        />
+      {showSavePopup && renderPopup(
+        "Confirm Save",
+        "Are you sure you want to save the changes?",
+        handleSaveConfirm,
+        () => setShowSavePopup(false)
       )}
 
       <main style={{ padding: '20px', backgroundColor: 'white' }}>
@@ -160,6 +164,45 @@ const EventDetail = () => {
       <footer><ContactInfo /></footer>
     </>
   );
+};
+
+// Popup styles
+const overlayStyle = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100vw',
+  height: '100vh',
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 9999
+};
+
+const popupStyle = {
+  backgroundColor: 'white',
+  padding: '30px',
+  borderRadius: '10px',
+  width: '400px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+};
+
+const confirmButtonStyle = {
+  marginRight: '10px',
+  backgroundColor: '#4CAF50',
+  color: 'white',
+  padding: '8px 12px',
+  border: 'none',
+  borderRadius: '4px'
+};
+
+const closeButtonStyle = {
+  backgroundColor: '#f44336',
+  color: 'white',
+  padding: '8px 12px',
+  border: 'none',
+  borderRadius: '4px'
 };
 
 export default EventDetail;

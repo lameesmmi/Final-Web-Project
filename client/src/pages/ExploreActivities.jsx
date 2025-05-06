@@ -24,23 +24,42 @@ const ExploreActivities = () => {
   useEffect(() => {
     if (!city) return;
 
+    // const fetchCityData = async () => {
+    //   try {
+    //     // const res = await fetch(`/cities/${city}`);
+    //     // const data = await res.json();
+    //     const res = await axios.get(`/cities/${city}`);
+    //     const data = res.data;
+
+    //     if (!res.ok) {
+    //       throw new Error(data.message || "Failed to fetch city");
+    //     }
+
+    //     setDestination(data.name);
+    //     setDescription(data.bio);
+    //   } catch (err) {
+    //     console.error("Fetch error:", err);
+    //     setDestination(city);
+    //     setDescription("Discover unique experiences and activities in this city.");
+    //   }
+    // };
+
     const fetchCityData = async () => {
       try {
-        const res = await fetch(`/cities/${city}`);
-        const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error(data.message || "Failed to fetch city");
-        }
-
+        console.log("🌍 Fetching city:", city);
+        const res = await axios.get(`/cities/${city}`);
+        console.log("✅ City fetched:", res.data);
+        const data = res.data;
+    
         setDestination(data.name);
         setDescription(data.bio);
       } catch (err) {
-        console.error("Fetch error:", err);
+        console.error("❌ FetchCityData failed:", err.response?.status, err.response?.data);
         setDestination(city);
         setDescription("Discover unique experiences and activities in this city.");
       }
     };
+    
 
     fetchCityData();
   }, [city]);

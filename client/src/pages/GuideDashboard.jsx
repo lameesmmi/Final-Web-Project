@@ -25,29 +25,45 @@ const GuideDashboard = () => {
   const [activitiesForSelectedDate, setActivitiesForSelectedDate] = useState([]);
   const [tours, setTours] = useState([]);
 
-  const handleDateChange = async (dateStr) => {
-    setSelectedDate(dateStr);
-    const matchingTours = tours.filter(tour => {
-      const formattedTourDate = new Date(tour.date).toISOString().split('T')[0];
-      return formattedTourDate === dateStr;
-    });
+  // const handleDateChange = async (dateStr) => {
+  //   setSelectedDate(dateStr);
+  //   const matchingTours = tours.filter(tour => {
+  //     const formattedTourDate = new Date(tour.date).toISOString().split('T')[0];
+  //     return formattedTourDate === dateStr;
+  //   });
 
-    if (matchingTours.length === 0) {
-      setActivitiesForSelectedDate([]);
-      return;
-    }
+  //   if (matchingTours.length === 0) {
+  //     setActivitiesForSelectedDate([]);
+  //     return;
+  //   }
 
-    const allEventIds = matchingTours.flatMap(t => t.eventIds);
+  //   const allEventIds = matchingTours.flatMap(t => t.eventIds);
 
+  //   try {
+  //     const res = await axios.get(`/activities/byIds`, {
+  //       params: { ids: allEventIds.join(',') }
+  //     });
+  //     setActivitiesForSelectedDate(res.data);
+  //   } catch (err) {
+  //     console.error("Error fetching activities for selected date:", err);
+  //   }
+  // };
+
+  const handleDateChange = async (date) => {
+    const formattedDate = new Date(date).toISOString().split('T')[0];
+    setSelectedDate(formattedDate);
+  
     try {
-      const res = await axios.get(`/activities/byIds`, {
-        params: { ids: allEventIds.join(',') }
+      const res = await axios.get('/activities', {
+        params: { date: formattedDate }
       });
       setActivitiesForSelectedDate(res.data);
     } catch (err) {
-      console.error("Error fetching activities for selected date:", err);
+      console.error('❌ Error fetching activities:', err.response?.data || err.message);
+      setActivitiesForSelectedDate([]);
     }
   };
+  
 
   useEffect(() => {
     const guideId = localStorage.getItem('guideId');
