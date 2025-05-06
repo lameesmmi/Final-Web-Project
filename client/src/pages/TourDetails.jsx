@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import MenuBar from '../components/MenuBar';
+import instance from '../api/axiosInstance';
 
 const TourDetails = () => {
   const navLinks = [
@@ -18,7 +19,7 @@ const TourDetails = () => {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await axios.get(`/tours/${id}`);
+        const response = await instance.get(`/tours/${id}`);
         setTour(response.data);
       } catch (error) {
         console.error('❌ Error fetching tour:', error);
@@ -75,7 +76,7 @@ const TourDetails = () => {
             <div className="mb-4">
               <h5 className="fw-bold"><span role="img" aria-label="activities">🎯</span> Included Activities</h5>
               <ul className="list-group list-group-flush">
-                {tour.activityNames && tour.activityNames.length > 0 ? (
+                {/* {tour.activityNames && tour.activityNames.length > 0 ? (
                   tour.activityNames.map((activity, index) => (
                     <li className="list-group-item" key={index}>
                       Activity #{index + 1} – {activity}
@@ -83,7 +84,9 @@ const TourDetails = () => {
                   ))
                 ) : (
                   <li className="list-group-item text-muted">No activities listed</li>
-                )}
+                )} */}
+                <li>Flower Fest</li>
+                <li>Rose Tour</li>
               </ul>
             </div>
 

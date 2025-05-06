@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../api/axiosInstance"; // ✅ Use axios instance
+// import axios from "../api/axiosInstance"; // ✅ Use axios instance
 import CalendarComponent from "../components/CalendarComponent";
 import GuideReviews from "../components/GuideReviews";
 import TourStatistics from "../components/TourStatistics";
@@ -10,6 +10,8 @@ import CardSlider from "../components/CardSlider";
 import EarningPerMonth from "../components/EarningPerMonth";
 import "./GuideDashboard.css";
 import GuideTourSlider from '../components/GuideTourSlider';
+import instance from "../api/axiosInstance";
+ 
 
 const GuideDashboard = () => {
   const navLinks = [
@@ -25,36 +27,12 @@ const GuideDashboard = () => {
   const [activitiesForSelectedDate, setActivitiesForSelectedDate] = useState([]);
   const [tours, setTours] = useState([]);
 
-  // const handleDateChange = async (dateStr) => {
-  //   setSelectedDate(dateStr);
-  //   const matchingTours = tours.filter(tour => {
-  //     const formattedTourDate = new Date(tour.date).toISOString().split('T')[0];
-  //     return formattedTourDate === dateStr;
-  //   });
-
-  //   if (matchingTours.length === 0) {
-  //     setActivitiesForSelectedDate([]);
-  //     return;
-  //   }
-
-  //   const allEventIds = matchingTours.flatMap(t => t.eventIds);
-
-  //   try {
-  //     const res = await axios.get(`/activities/byIds`, {
-  //       params: { ids: allEventIds.join(',') }
-  //     });
-  //     setActivitiesForSelectedDate(res.data);
-  //   } catch (err) {
-  //     console.error("Error fetching activities for selected date:", err);
-  //   }
-  // };
-
   const handleDateChange = async (date) => {
     const formattedDate = new Date(date).toISOString().split('T')[0];
     setSelectedDate(formattedDate);
   
     try {
-      const res = await axios.get('/activities', {
+      const res = await instance.get('/activities', {
         params: { date: formattedDate }
       });
       setActivitiesForSelectedDate(res.data);
@@ -69,7 +47,7 @@ const GuideDashboard = () => {
     const guideId = localStorage.getItem('guideId');
     if (!guideId) return;
 
-    axios
+    instance
       .get(`/tours/guide/id/${guideId}`)
       .then((res) => setTours(res.data))
       .catch((err) => console.error("Error fetching tours:", err));

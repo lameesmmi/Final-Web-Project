@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../api/axiosInstance'; // ✅ Import your axios instance
+// import axios from '../api/axiosInstance'; // ✅ Import your axios instance
 import Tour from './Tour';
 import CardSlider from './CardSlider';
+import instance from '../api/axiosInstance';
 
 const GuideTourSlider = () => {
   const [tours, setTours] = useState([]);
@@ -13,7 +14,7 @@ const GuideTourSlider = () => {
         const guideId = localStorage.getItem('guideId'); // ✅ Get guide ID from storage
         if (!guideId) return;
 
-          const res = await axios.get(`/tours/guide/id/${guideId}`);
+          const res = await instance.get(`/tours/guide/id/${guideId}`);
 
         setTours(res.data);
       } catch (err) {

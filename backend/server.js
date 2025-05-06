@@ -49,13 +49,14 @@ app.use('/api/reservations', activityProviderReservationRoutes);
 
 app.use('/api/admin', adminRoutes); // Use singular `/admin`
 app.use('/api/auth', authRoutes);
-app.use('/api/tours', tourRoutes); // ✅ ADD THIS
+app.use('/api/tours', tourRoutes); 
 app.use('/api/activities', activityRoutes);
 app.use('/api/complaints', complaintRoutes);
 
+
 app.use('/api/activities', activityRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/tours', tourRoutes); // ADD THIS
+app.use('/api/tours', tourRoutes); 
 app.use('/api/pendingActivities', pendingActivitiesRoutes);
 
 // Health check route
