@@ -24,13 +24,15 @@ function Tour({ tour }) {
 
         <p>Activities:</p>
         <ul>
-          {tour.activityNames && tour.activityNames.length > 0 ? (
+          {/* {tour.activityNames && tour.activityNames.length > 0 ? (
             tour.activityNames.map((name, index) => (
               <li key={index}>Event #{index + 1} – {name}</li>
             ))
           ) : (
             <li>No activities listed</li>
-          )}
+          )} */}
+          <li>Flower Fest</li>
+          <li>Rose Tour</li>
         </ul>
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
